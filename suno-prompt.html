@@ -1,0 +1,217 @@
+<html><head><base href="https://ai-music-generator.example.com/to%20make%20prompt%20for%20suno,add%20on%20mood%20,genre%20and%20tempos%20to%20each%20one%20add%2020%20things%20to%20it,make%20sure%20it%20work%20,if%20you%20need%20a%20api%20or%20anything%20make%20,make%20that%20the%20way%20it%20look%20and%20does%20stays%20the%20same">
+<meta charset="UTF-8">
+<title>AI Music Generator - Suno Prompt Creator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1DB954, #191414);
+        color: #ffffff;
+        line-height: 1.6;
+        padding: 20px;
+        margin: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(25, 20, 20, 0.8);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #1DB954;
+    }
+    label {
+        display: block;
+        margin-top: 20px;
+        color: #1DB954;
+    }
+    select, input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #1DB954;
+        background-color: #282828;
+        color: #ffffff;
+        border-radius: 4px;
+    }
+    button {
+        background-color: #1DB954;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    button:hover {
+        background-color: #1ed760;
+    }
+    #output {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #282828;
+        border-radius: 4px;
+        white-space: pre-wrap;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Music Generator - Suno Prompt Creator</h1>
+        <form id="promptForm">
+            <label for="genre">Genre:</label>
+            <select id="genre" required>
+                <option value="">Select a genre</option>
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+                <option value="Hip Hop">Hip Hop</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Classical">Classical</option>
+                <option value="R&B">R&B</option>
+                <option value="Country">Country</option>
+                <option value="Folk">Folk</option>
+                <option value="Reggae">Reggae</option>
+                <option value="Blues">Blues</option>
+                <option value="Metal">Metal</option>
+                <option value="Funk">Funk</option>
+                <option value="Disco">Disco</option>
+                <option value="Punk">Punk</option>
+                <option value="Techno">Techno</option>
+                <option value="House">House</option>
+                <option value="Ambient">Ambient</option>
+                <option value="Indie">Indie</option>
+                <option value="Soul">Soul</option>
+            </select>
+
+            <label for="mood">Mood:</label>
+            <select id="mood" required>
+                <option value="">Select a mood</option>
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Energetic">Energetic</option>
+                <option value="Relaxed">Relaxed</option>
+                <option value="Romantic">Romantic</option>
+                <option value="Angry">Angry</option>
+                <option value="Mysterious">Mysterious</option>
+                <option value="Nostalgic">Nostalgic</option>
+                <option value="Dreamy">Dreamy</option>
+                <option value="Hopeful">Hopeful</option>
+                <option value="Melancholic">Melancholic</option>
+                <option value="Euphoric">Euphoric</option>
+                <option value="Anxious">Anxious</option>
+                <option value="Peaceful">Peaceful</option>
+                <option value="Triumphant">Triumphant</option>
+                <option value="Gloomy">Gloomy</option>
+                <option value="Playful">Playful</option>
+                <option value="Intense">Intense</option>
+                <option value="Serene">Serene</option>
+                <option value="Bittersweet">Bittersweet</option>
+            </select>
+
+            <label for="tempo">Tempo:</label>
+            <select id="tempo" required>
+                <option value="">Select a tempo</option>
+                <option value="Very Slow (40-60 BPM)">Very Slow (40-60 BPM)</option>
+                <option value="Slow (60-80 BPM)">Slow (60-80 BPM)</option>
+                <option value="Medium Slow (80-100 BPM)">Medium Slow (80-100 BPM)</option>
+                <option value="Medium (100-120 BPM)">Medium (100-120 BPM)</option>
+                <option value="Medium Fast (120-140 BPM)">Medium Fast (120-140 BPM)</option>
+                <option value="Fast (140-160 BPM)">Fast (140-160 BPM)</option>
+                <option value="Very Fast (160-180 BPM)">Very Fast (160-180 BPM)</option>
+                <option value="Extremely Fast (180+ BPM)">Extremely Fast (180+ BPM)</option>
+                <option value="Rubato">Rubato</option>
+                <option value="Accelerando">Accelerando</option>
+                <option value="Ritardando">Ritardando</option>
+                <option value="Syncopated">Syncopated</option>
+                <option value="Swung">Swung</option>
+                <option value="Polyrhythmic">Polyrhythmic</option>
+                <option value="Irregular">Irregular</option>
+                <option value="Steadily Pulsing">Steadily Pulsing</option>
+                <option value="Free Time">Free Time</option>
+                <option value="Groove-based">Groove-based</option>
+                <option value="Uptempo">Uptempo</option>
+                <option value="Downtempo">Downtempo</option>
+            </select>
+
+            <label for="instruments">Main Instruments (comma-separated):</label>
+            <input type="text" id="instruments" placeholder="e.g., guitar, piano, drums">
+
+            <label for="theme">Theme or Subject:</label>
+            <input type="text" id="theme" placeholder="e.g., love, nature, space travel">
+
+            <label for="additionalDetails">Additional Details:</label>
+            <textarea id="additionalDetails" rows="4" placeholder="Any specific elements or characteristics you want in the music"></textarea>
+
+            <button type="submit">Generate Prompt</button>
+        </form>
+
+        <h2>Generated Prompt:</h2>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        document.getElementById('promptForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const genre = document.getElementById('genre').value;
+            const mood = document.getElementById('mood').value;
+            const tempo = document.getElementById('tempo').value;
+            const instruments = document.getElementById('instruments').value;
+            const theme = document.getElementById('theme').value;
+            const additionalDetails = document.getElementById('additionalDetails').value;
+
+            let prompt = `Create a ${mood} ${genre} composition with a ${tempo} tempo. `;
+            
+            if (instruments) {
+                prompt += `The primary instruments should include ${instruments}. `;
+            }
+            
+            if (theme) {
+                prompt += `The central theme or subject of the piece is ${theme}. `;
+            }
+            
+            if (additionalDetails) {
+                prompt += `Additional details to incorporate: ${additionalDetails}. `;
+            }
+
+            // Adding 20 additional elements to the prompt
+            const elements = [
+                `Ensure the composition reflects the essence of ${genre} music while maintaining a strong ${mood} emotional core.`,
+                `Pay special attention to the rhythmic elements to maintain the ${tempo} feel throughout the piece.`,
+                `Consider incorporating genre-specific techniques and harmonies to enhance the authenticity of the ${genre} style.`,
+                `Experiment with dynamic contrasts to create depth and interest in the arrangement.`,
+                `If applicable, suggest lyrical themes that complement the overall mood and genre of the composition.`,
+                `Incorporate appropriate sound design elements typical of ${genre} music.`,
+                `Consider adding instrumental solos or breaks that showcase the main instruments.`,
+                `Experiment with layering of instruments to create a rich, full sound.`,
+                `Implement chord progressions that are common in ${genre} music.`,
+                `Use appropriate effects and processing on the instruments to fit the ${genre} style.`,
+                `Consider the song structure typical of ${genre} music (e.g., verse-chorus-bridge, AABA, etc.).`,
+                `Incorporate rhythm patterns and grooves characteristic of ${genre} music.`,
+                `If relevant, suggest vocal styles or techniques that fit well with the ${genre} and ${mood}.`,
+                `Consider adding background vocals or harmonies to enhance the overall sound.`,
+                `Experiment with unconventional time signatures or rhythmic patterns if it fits the ${genre}.`,
+                `Incorporate appropriate production techniques common in modern ${genre} music.`,
+                `Consider adding ambient sounds or field recordings to enhance the atmosphere.`,
+                `Experiment with modulations or key changes to add interest to the composition.`,
+                `If applicable, suggest appropriate instrumentation for a breakdown or bridge section.`,
+                `Consider how the composition might build and release tension to maintain listener engagement.`
+            ];
+
+            elements.forEach(element => {
+                prompt += element + ' ';
+            });
+
+            document.getElementById('output').textContent = prompt.trim();
+
+            // Here you would typically send the prompt to the Suno API
+            // For demonstration purposes, we're just displaying it on the page
+            // In a real implementation, you would make an API call here
+            console.log("Sending prompt to Suno API:", prompt);
+        });
+    </script>
+</body></html>
